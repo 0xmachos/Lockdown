@@ -91,7 +91,7 @@
   check_command: |
     sudo systemsetup -getremotelogin | grep "Remote Login: Off"
   fix_command: |
-    sudo systemsetup -f -setremotelogin off",
+    sudo systemsetup -f -setremotelogin off
   enabled: true
 
 
