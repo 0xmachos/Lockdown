@@ -191,7 +191,7 @@
   enabled: true
 
 
-- title: "Disable signed apps from being auto-permitted to listen through firewall"
+- title: "Disable built-in software from being auto-permitted to listen through firewall"
   check_command: |
     defaults read /Library/Preferences/com.apple.alf allowsignedenabled | grep 0
   fix_command: |
