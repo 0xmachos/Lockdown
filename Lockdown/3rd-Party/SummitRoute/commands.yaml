@@ -38,7 +38,7 @@
   enabled: true
 
 
-- title: "Set time and date automatically"
+- title: "Disable setting time and date automatically via NTP"
   check_command: |
     sudo systemsetup getusingnetworktime | grep 'Network Time: Off'
   fix_command: |
