@@ -55,11 +55,11 @@
   enabled: true
 
 
-- title: "Enable secure screen saver corners"
+- title: "Enable screensaver hot corner"
   check_command: |
-    for i in $(find /Users -type d -maxdepth 1); do PREF=$i/Library/Preferences/com.apple.dock.plist; if [ -e $PREF ]; then CORNER=$(defaults read $PREF | grep corner | grep 6) && if [ -n "$CORNER" ]; then exit 1; fi; fi; done; exit 0
+    sudo -u $USER defaults read com.apple.dock.plist | grep corner | grep 5
   fix_command: |
-    for i in $(find /Users -type d -maxdepth 1); do PREF=$i/Library/Preferences/com.apple.dock.plist; if [ -e $PREF ]; then CORNER=$(defaults read $PREF | grep corner | grep 6) && if [ -n "$CORNER" ]; then defaults write $PREF wvous-tr-corner 5; fi; fi; done;
+    sudo -u $USER defaults write com.apple.dock.plist wvous-tr-corner -int 5 && killall Dock
   enabled: true
 
 
