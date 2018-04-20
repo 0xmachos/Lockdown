@@ -185,6 +185,10 @@ BOOL isSupportedOS()
     //get OS version info
     osVersionInfo = getOSVersion();
     
+    // Minor macOS version that's supported
+    // 13 = High Sierra
+    int supportedVersion = 13;
+    
     //sanity check
     if(nil == osVersionInfo)
     {
@@ -202,8 +206,8 @@ BOOL isSupportedOS()
         goto bail;
     }
     
-    //gotta be OS X 11
-    if([osVersionInfo[@"minorVersion"] intValue] < 11)
+    //gotta be macOS 13 (High Sierra)
+    if(supportedVersion != [osVersionInfo[@"minorVersion"] intValue])
     {
         //err msg
         syslog(LOG_DEBUG, "OS minor version %s not supported\n", [osVersionInfo[@"minor"] UTF8String]);

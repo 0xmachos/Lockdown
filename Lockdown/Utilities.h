@@ -24,7 +24,7 @@ BOOL spawnAsRoot(char* path, char** argv);
 NSDictionary* getOSVersion();
 
 //is current OS version supported?
-// ->for now, just OS X 10.11.* (El Capitan)
 BOOL isSupportedOS();
+// ->for now, just macOS 10.13.* (High Sierra)
 
 #endif /* Utilities_h */

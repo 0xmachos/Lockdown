@@ -46,7 +46,7 @@
     if(YES != isSupportedOS())
     {
         //show error popup
-        [self displayErrorWindow: @{KEY_ERROR_MSG:@"ERROR: unsupported OS", KEY_ERROR_SUB_MSG: [NSString stringWithFormat:@"OS X %@ is not supported", [[NSProcessInfo processInfo] operatingSystemVersionString]], KEY_ERROR_SHOULD_EXIT:@YES}];
+        [self displayErrorWindow: @{KEY_ERROR_MSG:@"ERROR: Unsupported OS Version", KEY_ERROR_SUB_MSG: [NSString stringWithFormat:@"macOS %@ is not supported", [[NSProcessInfo processInfo] operatingSystemVersionString]], KEY_ERROR_SHOULD_EXIT:@YES}];
         
         //bail
         goto bail;
