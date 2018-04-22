@@ -144,7 +144,7 @@
   enabled: true
 
 
-- title: "Enable FileVault"
+- title: "Check FileVault"
   check_command: |
     diskutil apfs list | grep -i "FileVault:                 Yes"
   comment: "TODO: FileVault can be enabled with `fdesetup enable`, but you need to enter user creds and write down the recovery key. How to do this programmatically, or at least tell the user the steps?  See https://derflounder.wordpress.com/2013/10/22/managing-mavericks-filevault-2-with-fdesetup/"
