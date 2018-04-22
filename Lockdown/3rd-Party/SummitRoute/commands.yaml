@@ -18,7 +18,7 @@
   check_command: |
     defaults read /Library/Preferences/com.apple.Bluetooth ControllerPowerState | grep 0
   fix_command: |
-    sudo defaults write /Library/Preferences/com.apple.Bluetooth ControllerPowerState -int 0 &&  sudo killall -HUP blued
+    sudo defaults write /Library/Preferences/com.apple.Bluetooth ControllerPowerState -int 0 && sudo killall -HUP bluetoothd
   enabled: true
 
 
