@@ -188,6 +188,11 @@
   comment: Cannot be fix in userland. 'spctl kext-consent enable' must be run in recovery OS.
   enabled: true
 
+- title: "Check EFI Firmware Integrity"
+  check_command: |
+    /usr/libexec/firmwarecheckers/eficheck/eficheck --integrity-check
+comment: Will fail if run on a VM. No programmatic fix. This runs once a week by default on High Sierra. See: https://eclecticlight.co/2017/09/24/high-sierra-automatically-checks-efi-firmware-each-week/
+  enabled: true
 
 - title: "Enable Firewall"
   check_command: |
