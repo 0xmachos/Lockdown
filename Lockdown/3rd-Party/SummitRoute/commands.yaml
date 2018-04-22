@@ -175,6 +175,13 @@
   enabled: true
 
 
+- title: "Check SIP Status"
+  check_command: |
+    csrutil status | grep 'enabled'
+  comment: Cannot be fix in userland. 'csrutil enable' must be run in recovery OS.
+  enabled: true
+
+
 - title: "Enable Firewall"
   check_command: |
     test $(defaults read /Library/Preferences/com.apple.alf globalstate) -ge 1
