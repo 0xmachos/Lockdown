@@ -182,6 +182,13 @@
   enabled: true
 
 
+- title: "Check Kernel Extension User Consent status"
+  check_command: |
+    spctl kext-consent status | grep 'ENABLED'
+  comment: Cannot be fix in userland. 'spctl kext-consent enable' must be run in recovery OS.
+  enabled: true
+
+
 - title: "Enable Firewall"
   check_command: |
     test $(defaults read /Library/Preferences/com.apple.alf globalstate) -ge 1
