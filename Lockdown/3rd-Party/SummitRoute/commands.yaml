@@ -164,6 +164,7 @@
     pmset -g | grep hibernatemode | grep 25
   fix_command: |
     sudo pmset -a hibernatemode 25
+  comment: For an unknown reason the first time fix_command is run it returns a FAIL in the app. However testing has shown that the hibernatemode value is changed to 35 despite the reported FAIL.
   enabled: true
 
 
