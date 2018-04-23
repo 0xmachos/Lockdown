@@ -164,7 +164,7 @@
     pmset -g | grep hibernatemode | grep 25
   fix_command: |
     sudo pmset -a hibernatemode 25
-  comment: For an unknown reason the first time fix_command is run it returns a FAIL in the app. However testing has shown that the hibernatemode value is changed to 35 despite the reported FAIL.
+  comment: "For an unknown reason the first time fix_command is run it returns a FAIL in the app. However testing has shown that the hibernatemode value is changed to 35 despite the reported FAIL."
   enabled: true
 
 
@@ -179,21 +179,21 @@
 - title: "Check SIP Status"
   check_command: |
     csrutil status | grep 'enabled'
-  comment: Cannot be fix in userland. 'csrutil enable' must be run in recovery OS.
+  comment: "Cannot be fixed in userland. 'csrutil enable' must be run in recovery OS."
   enabled: true
 
 
 - title: "Check Kernel Extension User Consent status"
   check_command: |
     spctl kext-consent status | grep 'ENABLED'
-  comment: Cannot be fix in userland. 'spctl kext-consent enable' must be run in recovery OS.
+  comment: "Cannot be fix in userland. 'spctl kext-consent enable' must be run in recovery OS."
   enabled: true
 
 
 - title: "Check EFI Firmware Integrity"
   check_command: |
     /usr/libexec/firmwarecheckers/eficheck/eficheck --integrity-check
-comment: Will fail if run on a VM. No programmatic fix. This runs once a week by default on High Sierra. See: https://eclecticlight.co/2017/09/24/high-sierra-automatically-checks-efi-firmware-each-week/
+  comment: "Will fail if run on a VM. No programmatic fix. This runs once a week by default on High Sierra. See: https://eclecticlight.co/2017/09/24/high-sierra-automatically-checks-efi-firmware-each-week/"
   enabled: true
 
 
