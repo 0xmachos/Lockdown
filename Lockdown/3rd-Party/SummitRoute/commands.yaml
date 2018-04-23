@@ -248,9 +248,9 @@
 
 - title: "Disable IPv6"
   check_command: |
-    networksetup -listallnetworkservices | while read i; do SUPPORT=$(networksetup -getinfo "$i" | grep "IPv6: Automatic") && if [ -n "$SUPPORT" ]; then exit 1; fi; done; exit 0
+    LIN="$(networksetup -listallnetworkservices | wc -l)"; INF="$(networksetup -listallnetworkservices | tail -n "$(( $LIN - 1 ))")"; while IFS= read -r i; do if networksetup -getinfo "$i" | grep -q 'IPv6: Off'; then :; else exit 1; fi; done <<< "$INF"; exit 0
   fix_command: |
-    networksetup -listallnetworkservices | while read i; do SUPPORT=$(networksetup -getinfo "$i" | grep "IPv6: Automatic") && if [ -n "$SUPPORT" ]; then networksetup -setv6off "$i"; fi; done;
+    LIN="$(networksetup -listallnetworkservices | wc -l)"; INF="$(networksetup -listallnetworkservices | tail -n "$(( $LIN - 1 ))")"; while IFS= read -r i; do networksetup -setv6off "$i"; done <<< "$INF"
   enabled: true
 
 
