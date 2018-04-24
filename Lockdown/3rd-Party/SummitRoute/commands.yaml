@@ -70,15 +70,6 @@
   enabled: true
 
 
-- title: "Disable Internet Sharing"
-  check_command: |
-    if [ -e /Library/Preferences/SystemConfiguration/com.apple.nat ]; then NAT=$(defaults read /Library/Preferences/SystemConfiguration/com.apple.nat | grep -i "Enabled = 0") && if [ -n "$NAT" ]; then exit 1; fi; fi; exit 0
-  fix_command: |
-    defaults write /Library/Preferences/SystemConfiguration/com.apple.nat NAT -dict-add Enabled -int 0
-  comment: "TODO: I'm not sure if this fix actually works since I don't have Internet Sharing enabled anywhere to test"
-  enabled: true
-
-
 - title: "Disable Screen Sharing"
   check_command: |
     if [ -e /System/Library/LaunchDaemons/com.apple.screensharing.plist ]; then STATUS=$(launchctl load /System/Library/LaunchDaemons/com.apple.screensharing.plist | grep -v "Service is disabled") && if [ -n "$STATUS" ]; then exit 1; fi; fi; exit 0
