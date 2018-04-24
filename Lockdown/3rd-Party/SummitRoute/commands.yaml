@@ -54,14 +54,6 @@
   enabled: true
 
 
-- title: "Ensure screen locks immediately when requested"
-  check_command: |
-    defaults read com.apple.screensaver askForPasswordDelay | grep "0"
-  fix_command: |
-    defaults write com.apple.screensaver askForPasswordDelay -int 0
-  enabled: true
-
-
 - title: "Disable Remote Apple Events"
   check_command: |
     sudo systemsetup -getremoteappleevents | grep "Remote Apple Events: Off"
