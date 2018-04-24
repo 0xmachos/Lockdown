@@ -70,14 +70,6 @@
   enabled: true
 
 
-- title: "Disable Screen Sharing"
-  check_command: |
-    if [ -e /System/Library/LaunchDaemons/com.apple.screensharing.plist ]; then STATUS=$(launchctl load /System/Library/LaunchDaemons/com.apple.screensharing.plist | grep -v "Service is disabled") && if [ -n "$STATUS" ]; then exit 1; fi; fi; exit 0
-  fix_command: |
-    launchctl unload -w /System/Library/LaunchDaemons/com.apple.screensharing.plist
-  enabled: true
-
-
 - title: "Disable Printer Sharing"
   check_command: |
     if [ -n "$(system_profiler SPPrintersDataType | grep Shared | grep Yes)" ]; then exit 1; fi; exit 0
