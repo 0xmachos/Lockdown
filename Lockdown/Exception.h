@@ -13,7 +13,7 @@
 /* FUNCTIONS */
 
 //install exception/signal handlers
-void installExceptionHandlers();
+void installExceptionHandlers(void);
 
 //exception handler for Obj-C exceptions
 void exceptionHandler(NSException *exception);

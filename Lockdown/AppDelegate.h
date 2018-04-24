@@ -49,7 +49,7 @@
 
 //check if app is pristine
 // ->that is to say, nobody modified on-disk image/resources
-OSStatus verifySelf();
+OSStatus verifySelf(void);
 
 //load commands
 // ->read them into memory and convery into objc obj

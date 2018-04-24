@@ -12,7 +12,7 @@
 
 //check if app is pristine
 // ->that is to say, nobody modified on-disk image/resources
-OSStatus verifySelf();
+OSStatus verifySelf(void);
 
 //display alert about app being unverifable
 void showUnverifiedAlert(OSStatus signingError);
@@ -21,10 +21,10 @@ void showUnverifiedAlert(OSStatus signingError);
 BOOL spawnAsRoot(char* path, char** argv);
 
 //get OS version
-NSDictionary* getOSVersion();
+NSDictionary* getOSVersion(void);
 
 //is current OS version supported?
-BOOL isSupportedOS();
 // ->for now, just macOS 10.13.* (High Sierra)
+BOOL isSupportedOS(void);
 
 #endif /* Utilities_h */
