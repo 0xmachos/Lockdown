@@ -72,7 +72,7 @@
 
 - title: "Disable Printer Sharing"
   check_command: |
-    if [ -n "$(system_profiler SPPrintersDataType | grep Shared | grep Yes)" ]; then exit 1; fi; exit 0
+    cupsctl | grep '_share_printers=0'
   fix_command: |
     cupsctl --no-share-printers
   enabled: true
