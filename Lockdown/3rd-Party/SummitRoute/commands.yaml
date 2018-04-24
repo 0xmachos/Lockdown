@@ -179,15 +179,6 @@
   enabled: true
 
 
-- title: "Disable iCloud drive"
-  check_command: |
-    if [ -n "$(defaults read NSGlobalDomain NSDocumentSaveNewDocumentsToCloud | grep "0")" ]; then exit 0; fi; exit 1;
-  fix_command: |
-    defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
-  comment: "TODO: Disable icloud entirely. This checks if a value is not set or set to 0"
-  enabled: true
-
-
 - title: "Require an administrator password to access system-wide preferences"
   check_command: |
     if [ -n "$(security authorizationdb read system.preferences 2> /dev/null | grep -A1 shared | grep -E '(true|false)' | grep 'false')" ]; then exit 0; fi; exit 1
